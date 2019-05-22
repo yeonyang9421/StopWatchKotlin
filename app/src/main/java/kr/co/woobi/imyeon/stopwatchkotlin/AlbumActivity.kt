@@ -6,9 +6,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.ViewParent
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_album.*
 import kr.co.woobi.imyeon.stopwatchkotlin.AlbumActivity.Companion.REQUEST_READ_EXTERNAL_STORAGE
+import kr.co.woobi.imyeon.stopwatchkotlin.databinding.ItemPhotoBinding
+import kotlin.concurrent.timer
 
 class AlbumActivity : AppCompatActivity() {
     companion object {
@@ -78,6 +86,57 @@ class AlbumActivity : AppCompatActivity() {
             null,
             "${MediaStore.Images.ImageColumns.DATE_TAKEN} DESC"
         )
-        Log.d(TAG, cursor?.toString())
+        val items = arrayListOf<Photo>()
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
+                val uri =
+                    cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA))
+                Log.d(TAG, cursor?.toString())
+                items.add(Photo(uri))
+            }
+            cursor.close()
+
+        }
+        val adapter = PhotoAdapter()
+        adapter.items = items
+        adapter.notifyDataSetChanged()
+
+        viewPager.adapter = adapter
+
+        timer(period = 3000) {
+            runOnUiThread {
+                if (viewPager.currentItem < adapter.itemCount - 1) {
+                    viewPager.currentItem=viewPager.currentItem+1
+
+                }else{
+                    viewPager.currentItem=0
+                }
+            }
+        }
+
+    }
+}
+
+//Model
+data class Photo(val uri: String)
+
+//adapter
+class PhotoAdapter : RecyclerView.Adapter<PhotoAdapter.PhotoViewHolder>() {
+    var items = arrayListOf<Photo>()
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_photo, parent, false)
+        val binding = ItemPhotoBinding.bind(view)
+        return PhotoViewHolder(binding)
+    }
+
+    override fun getItemCount(): Int = items.size
+
+
+    override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) {
+        holder.binding.photo = items[position]
+    }
+
+    class PhotoViewHolder(val binding: ItemPhotoBinding) : RecyclerView.ViewHolder(binding.root) {
+
     }
 }

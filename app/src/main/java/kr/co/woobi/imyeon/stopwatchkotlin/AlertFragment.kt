@@ -24,5 +24,4 @@ class AlertFragment(private val onClickListener: () -> Unit) : DialogFragment() 
         return builder.create()
     }
 
-
 }

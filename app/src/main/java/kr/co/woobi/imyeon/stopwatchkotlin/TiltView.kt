@@ -14,8 +14,6 @@ class TiltView(context: Context?) : View(context) {
     private  var cX:Float = 0f
     private  var cY:Float = 0f
 
-
-
     init {
         greenPaint.color = Color.GREEN
 
