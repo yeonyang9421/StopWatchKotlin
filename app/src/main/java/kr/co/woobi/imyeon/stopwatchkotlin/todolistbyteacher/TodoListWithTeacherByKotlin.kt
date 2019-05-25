@@ -1,12 +1,10 @@
-package kr.co.woobi.imyeon.stopwatchkotlin.TodoList
+package kr.co.woobi.imyeon.stopwatchkotlin.todolistbyteacher
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import kr.co.woobi.imyeon.stopwatchkotlin.R
 

@@ -1,4 +1,4 @@
-package kr.co.woobi.imyeon.stopwatchkotlin.TodoList.db
+package kr.co.woobi.imyeon.stopwatchkotlin.todolistbyteacher.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

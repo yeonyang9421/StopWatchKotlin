@@ -1,45 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".TodoList.EditFragment">
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
 
+    <data>
 
-    <CalendarView
-        android:id="@+id/calendarView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <EditText
-        android:id="@+id/edit_todo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Todo" />
+        <variable
+            name="todo"
+            type="kr.co.woobi.imyeon.stopwatchkotlin.todolistbyteacher.db.Todo" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="bottom"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".todolistbyteacher.EditFragment">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
+
+        <CalendarView
+            android:id="@+id/calendarView2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#3355cc"
-            android:layout_marginEnd="50dp"
-            android:layout_gravity="right"
-            android:src="@drawable/ic_delete_black_24dp" />
+            bind:setDate="@{todo.date}" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/edit_todo"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Todo"
+            android:text="@{todo.title}" />
 
-            android:backgroundTint="#99cc00"
-            android:src="@drawable/ic_check_black_24dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/button_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginEnd="50dp"
+                android:backgroundTint="#3355cc"
+                android:clickable="true"
+                android:src="@drawable/ic_delete_black_24dp" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/button_done"
+                android:clickable="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#99cc00"
+                android:src="@drawable/ic_check_black_24dp" />
 
 
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</layout>

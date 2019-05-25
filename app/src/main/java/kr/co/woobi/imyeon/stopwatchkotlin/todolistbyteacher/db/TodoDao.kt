@@ -1,4 +1,4 @@
-package kr.co.woobi.imyeon.stopwatchkotlin.TodoList.db
+package kr.co.woobi.imyeon.stopwatchkotlin.todolistbyteacher.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
@@ -15,5 +15,5 @@ interface TodoDao {
     fun update(todo : Todo)
 
     @Delete
-    fun delete(todo:Todo)
+    fun delete(todo: Todo)
 }

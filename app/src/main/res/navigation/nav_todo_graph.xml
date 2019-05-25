@@ -7,23 +7,30 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="kr.co.woobi.imyeon.stopwatchkotlin.TodoList.MainFragment"
+        android:name="kr.co.woobi.imyeon.stopwatchkotlin.todolistbyteacher.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" >
+        tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_editFragment"
-            app:destination="@id/editFragment" />
+            app:destination="@id/editFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <action
             android:id="@+id/action_mainFragment_to_addFragment"
             app:destination="@id/addFragment" />
     </fragment>
     <fragment
         android:id="@+id/editFragment"
-        android:name="kr.co.woobi.imyeon.stopwatchkotlin.TodoList.EditFragment"
-        android:label="수정"
-        tools:layout="@layout/fragment_edit" />
+        android:name="kr.co.woobi.imyeon.stopwatchkotlin.todolistbyteacher.EditFragment"
+        android:label="수정">
+        <argument
+            android:name="todo"
+            app:argType="kr.co.woobi.imyeon.stopwatchkotlin.TodoList.db.Todo" />
+    </fragment>
     <fragment
         android:id="@+id/addFragment"
-        android:name="kr.co.woobi.imyeon.stopwatchkotlin.TodoList.AddFragment"
+        android:name="kr.co.woobi.imyeon.stopwatchkotlin.todolistbyteacher.AddFragment"
         android:label="추가" />
 </navigation>
