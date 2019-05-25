@@ -22,10 +22,3 @@ fun Any.logd(text: String) {
     Log.d(this::class.java.simpleName, text)
 }
 
-fun Context.alert(text:String){
-    val alertDialogBuilder=AlertDialog.Builder(this)
-
-
-
-
-}

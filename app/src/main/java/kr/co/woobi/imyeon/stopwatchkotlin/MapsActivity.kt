@@ -22,7 +22,6 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.gms.maps.model.PolygonOptions
 import com.google.android.gms.maps.model.PolylineOptions
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -131,16 +130,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun showPermissionInfoDialog() {
-//        alert("현재 위치 정보를 얻으려면 위치 권한이 필요합니다.", "권한이 필요한 이유") {
-////            yesButton {
-////                ActivityCompat.requestPermissions(
-////                    this,
-////                    arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-////                    REQUEST_ACCESS_FINE_LOCATION
-////                )
-////            }
-////            noButton {}
-////        }.show()
+//        AlertFragment("현재 위치 정보를 얻으려면 위치 권한이 필요합니다.", "권한이 필요한 이유") {
+//            yesButton {
+//                ActivityCompat.requestPermissions(
+//                    this,
+//                    arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+//                    REQUEST_ACCESS_FINE_LOCATION
+//                )
+//            }
+//            noButton {}
+//        }.show()
     }
 
 

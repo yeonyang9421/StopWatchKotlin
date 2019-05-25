@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TodoList.EditFragment">
+
+
+    <CalendarView
+        android:id="@+id/calendarView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/edit_todo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Todo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#3355cc"
+            android:layout_marginEnd="50dp"
+            android:layout_gravity="right"
+            android:src="@drawable/ic_delete_black_24dp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:backgroundTint="#99cc00"
+            android:src="@drawable/ic_check_black_24dp" />
+
+
+    </LinearLayout>
+</LinearLayout>
